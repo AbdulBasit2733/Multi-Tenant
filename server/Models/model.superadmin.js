@@ -1,17 +1,20 @@
 const mongoose = require("mongoose");
 
 const SuperAdminSchema = new mongoose.Schema({
-  name: String,
-  email: { type: String, unique: true },
+  name: {
+    type:String,
+    required:true
+  },
+  email: { type: String, unique: true, required:true },
   role: {
     type: String,
     default: "SUPERADMIN",
+    required:true
   },
-  domain: {
-    type: String,
-    unique: true,
+  password: {
+    type:String,
+    required:true
   },
-  password: String,
 });
 
 const SuperAdminModel = mongoose.model("Superadmin", SuperAdminSchema);
